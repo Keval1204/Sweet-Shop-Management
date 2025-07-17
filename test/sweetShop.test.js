@@ -30,4 +30,12 @@ describe('SweetShop', () => {
         expect(sweet.quantity).toBe(25);
     });
 
+    test('should search sweets by category', () => {
+        shop.addSweet({ id: 1, name: 'Ladoo', category: 'candy', price: 10, quantity: 5 });
+        shop.addSweet({ id: 2, name: 'Cake', category: 'pastry', price: 50, quantity: 10 });
+        const results = shop.searchSweets({ category: 'pastry' });
+        expect(results.length).toBe(1);
+        expect(results[0].name).toBe('Cake');
+    });
+
 });
