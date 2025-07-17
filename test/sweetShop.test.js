@@ -63,4 +63,14 @@ describe('SweetShop', () => {
         expect(() => shop.deleteSweet(999)).not.toThrow();
     });
 
+    test('should sort sweets manually by price ascending', () => {
+        shop.addSweet({ id: 4, name: 'Lollipop', category: 'candy', price: 5, quantity: 100 });
+        shop.addSweet({ id: 5, name: 'Truffle', category: 'chocolate', price: 25, quantity: 50 });
+        shop.addSweet({ id: 6, name: 'Cupcake', category: 'pastry', price: 15, quantity: 60 });
+
+        const sorted = shop.getAllSweets().sort((a, b) => a.price - b.price);
+        expect(sorted[0].price).toBe(5);
+        expect(sorted[2].price).toBe(25);
+    });
+
 });
