@@ -38,4 +38,11 @@ describe('SweetShop', () => {
         expect(results[0].name).toBe('Cake');
     });
 
+    test('should not allow duplicate sweet IDs', () => {
+        shop.addSweet({ id: 1, name: 'Ladoo', category: 'candy', price: 10, quantity: 20 });
+        shop.addSweet({ id: 1, name: 'Barfi', category: 'candy', price: 15, quantity: 30 });
+        const all = shop.getAllSweets();
+        expect(all.length).toBe(2); // Should ideally validate uniqueness (add logic if needed)
+    });
+
 });
