@@ -59,4 +59,8 @@ describe('SweetShop', () => {
         expect(sweet.quantity).toBe(0);
     });
 
+    test('deleting a non-existing sweet should not throw error', () => {
+        expect(() => shop.deleteSweet(999)).not.toThrow();
+    });
+
 });
