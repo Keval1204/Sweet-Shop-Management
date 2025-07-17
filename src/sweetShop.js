@@ -20,6 +20,13 @@ class SweetShop {
         }
         sweet.quantity -= quantity;
     }
+
+    restockSweet(id, quantity) {
+        const sweet = this.sweets.find(s => s.id === id);
+        if (sweet) {
+            sweet.quantity += quantity;
+        }
+    }
 }
 
 module.exports = SweetShop;

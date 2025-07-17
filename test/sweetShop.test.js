@@ -23,4 +23,11 @@ describe('SweetShop', () => {
         expect(() => shop.purchaseSweet(1, 10)).toThrow('Not enough stock');
     });
 
+    test('should allow restocking', () => {
+        shop.addSweet({ id: 1, name: 'Ladoo', category: 'candy', price: 10, quantity: 5 });
+        shop.restockSweet(1, 20);
+        const sweet = shop.getAllSweets()[0];
+        expect(sweet.quantity).toBe(25);
+    });
+
 });
