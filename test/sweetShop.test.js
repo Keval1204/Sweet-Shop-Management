@@ -18,4 +18,9 @@ describe('SweetShop', () => {
         expect(shop.getSweets().length).toBe(0);
     });
 
+    test('should not allow purchase if quantity is insufficient', () => {
+        shop.addSweet({ id: 1, name: 'Ladoo', category: 'candy', price: 10, quantity: 5 });
+        expect(() => shop.purchaseSweet(1, 10)).toThrow('Not enough stock');
+    });
+
 });
