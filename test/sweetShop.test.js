@@ -73,4 +73,13 @@ describe('SweetShop', () => {
         expect(sorted[2].price).toBe(25);
     });
 
+    test('search sweets by price range', () => {
+        shop.addSweet({ id: 7, name: 'Muffin', category: 'pastry', price: 30, quantity: 15 });
+        shop.addSweet({ id: 8, name: 'Candycane', category: 'candy', price: 10, quantity: 40 });
+
+        const results = shop.searchSweets({ minPrice: 20, maxPrice: 40 });
+        expect(results.length).toBe(1);
+        expect(results[0].name).toBe('Muffin');
+    });
+
 });
