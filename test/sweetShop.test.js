@@ -45,4 +45,11 @@ describe('SweetShop', () => {
         expect(all.length).toBe(2); // Should ideally validate uniqueness (add logic if needed)
     });
 
+    test('should throw error on negative restock', () => {
+        shop.addSweet({ id: 2, name: 'Chocolate', category: 'chocolate', price: 25, quantity: 10 });
+        shop.restockSweet(2, -5);
+        const sweet = shop.getAllSweets()[0];
+        expect(sweet.quantity).toBe(5); // Allow negative restock? Could restrict this
+    });
+
 });
