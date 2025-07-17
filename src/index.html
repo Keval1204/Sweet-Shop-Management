@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sweet Shop Management</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+
+        input,
+        select {
+            margin: 5px;
+            padding: 5px;
+        }
+
+        button {
+            margin: 5px;
+            padding: 5px 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🍬 Sweet Shop Management</h1>
+
+    <h3>Add Sweet</h3>
+    <input type="number" id="sweetId" placeholder="ID">
+    <input type="text" id="sweetName" placeholder="Name">
+    <select id="sweetCategory">
+        <option value="candy">Candy</option>
+        <option value="chocolate">Chocolate</option>
+        <option value="pastry">Pastry</option>
+    </select>
+    <input type="number" id="sweetPrice" placeholder="Price">
+    <input type="number" id="sweetQty" placeholder="Quantity">
+    <button onclick="addSweet()">Add</button>
+
+    <h3>Search Sweets</h3>
+    <input type="text" id="searchName" placeholder="Name">
+    <select id="searchCategory">
+        <option value="">All</option>
+        <option value="candy">Candy</option>
+        <option value="chocolate">Chocolate</option>
+        <option value="pastry">Pastry</option>
+    </select>
+    <button onclick="searchSweets()">Search</button>
+    <button onclick="renderAll()">Reset</button>
+
+    <h3>Sweets List</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Qty</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="sweetTable"></tbody>
+    </table>
+    <h3>Sort Sweets</h3>
+    <select id="sortBy">
+        <option value="">-- Select --</option>
+        <option value="priceAsc">Price (Low to High)</option>
+        <option value="priceDesc">Price (High to Low)</option>
+        <option value="qtyAsc">Quantity (Low to High)</option>
+        <option value="qtyDesc">Quantity (High to Low)</option>
+    </select>
+    <button onclick="sortSweets()">Sort</button>
+
+
+    <script src="./sweetShop.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
