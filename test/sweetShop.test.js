@@ -52,4 +52,11 @@ describe('SweetShop', () => {
         expect(sweet.quantity).toBe(5); // Allow negative restock? Could restrict this
     });
 
+    test('should allow purchase of exact available quantity', () => {
+        shop.addSweet({ id: 3, name: 'Cake', category: 'pastry', price: 100, quantity: 5 });
+        shop.purchaseSweet(3, 5);
+        const sweet = shop.getAllSweets()[0];
+        expect(sweet.quantity).toBe(0);
+    });
+
 });
